@@ -11,7 +11,8 @@ CNNに全部ぶっ込めばそこそこのスコアを達成できる説の検�
 ## 手順
 ### 1.環境構築
 シェルスクリプトを実行し、環境構築する
-'sh requirements.sh'
+
+`sh requirements.sh`
 
 ### 2.前処理
 cabin,Ticketなどが数字じゃないかつ生存に関係しているのか分析しないとわからないのでとりあえずスルーする。
@@ -20,7 +21,8 @@ cabin,Ticketなどが数字じゃないかつ生存に関係しているのか�
 - 料金は値がでかすぎるので、正規化する 
 - 訓練、テストデータに正解ラベルを付与する
 上記のプロセスは以下のスクリプトを実行することで作成
-'python preprcessing.py'
+
+`python preprcessing.py`
 
 ### 3.訓練
-'python train.py'
+`python train.py`
