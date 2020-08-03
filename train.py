@@ -62,13 +62,13 @@ def test(model,test_loader,device,optimizer,epoch,batch_size):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='構築したCNNモデルの訓練・テストを行う')
-    parser.add_argument('data_path',default="./model_input_data/")
-    parser.add_argument('batch_size',default=100)
-    parser.add_argument('weight_decay',default=0.005)
-    parser.add_argument('learing_late',default=0.0001)
-    parser.add_argument('epoch',default=100)
-    parser.add_argument('output_data_path',default="./output/data/")
-    parser.add_argument('trained_model',default="./output/model")
+    parser.add_argument('--data_path',default="./model_input_data/")
+    parser.add_argument('--batch_size',default=100,type=int)
+    parser.add_argument('--weight_decay',default=0.005,type=float)
+    parser.add_argument('--learing_late',default=0.0001,type=float)
+    parser.add_argument('--epoch',default=100,type=int)
+    parser.add_argument('--output_data_path',default="./output/data/")
+    parser.add_argument('--trained_model',default="./output/model")
     args = parser.parse_args()
 
     #データ読み込み
