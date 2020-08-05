@@ -67,9 +67,10 @@ def test(model,test_loader,device,optimizer,creterion,epoch,batch_size,max_acc):
     acc = sum_correct / len(test_loader.dataset)
     #accが最大となるmodelの保存
     if max_acc < acc:
-        torch.save(model.state_dict(),args.trained_model + "_epoch_{}_acc_{}.pth".format(epoch+1,acc))
+        torch.save(model.state_dict(),args.trained_model + "CNN_epoch_{}_acc_{}.pth".format(epoch+1,acc))
         max_acc = acc
     print("test:epoch{},loss={},accuracy={}".format(epoch+1,sum_loss*batch_size/len(test_loader.dataset), float(sum_correct/sum_total)))
+    return max_acc
 
 
 if __name__ == "__main__":
@@ -100,7 +101,7 @@ if __name__ == "__main__":
     print("model training...")
     for epoch in range(args.epoch):
         train(model,train_loader,device,optimizer,criterion,epoch,args.batch_size)
-        test(model,train_loader,device,optimizer,criterion,epoch,args.batch_size,max_acc)
+        max_acc  = test(model,train_loader,device,optimizer,criterion,epoch,args.batch_size,max_acc)
     print("finish!!")
     #train = pd.read_csv("./data/train.csv")
     #print(train["Cabin"])
